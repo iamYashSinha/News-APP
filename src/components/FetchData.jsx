@@ -1,29 +1,27 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function FetchData({ cat }) {
   const [data, setData] = useState("");
   const fetchData = async () => {
     try {
-        const apiKey = process.env.REACT_APP_API_KEY;
-      await axios
-        .get(
-          cat
-            ? `http://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${apiKey}`
-            : `http://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`
-        )
-        .then((res) => setData(res.data.articles));
+      const apiKey = process.env.REACT_APP_API_KEY;
+      const response = await fetch(
+        cat
+          ? `https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${apiKey}`
+          : `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`
+      );
+      const result = await response.json();
+      setData(result.articles);
     } catch (error) {
-      if (error) {
-        console.log(error.message);
-      }
+      console.log(error.message);
     }
   };
 
   useEffect(() => {
     fetchData();
   }, [cat]);
+
 
   return (
     <div className="container my-4">
