@@ -10,8 +10,8 @@ export default function FetchData({ cat }) {
       await axios
         .get(
           cat
-            ? `https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${apiKey}`
-            : `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`
+            ? `http://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${apiKey}`
+            : `http://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`
         )
         .then((res) => setData(res.data.articles));
     } catch (error) {
