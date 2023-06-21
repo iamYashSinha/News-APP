@@ -1,3 +1,12 @@
+# Video Demo 
+[Screencast from 21-06-23 05:53:30 PM IST.webm](https://github.com/iamYashSinha/News-APP/assets/71075101/cd22b7c0-fc83-43e1-ad94-4416c85496b6)
+
+# Note: 
+
+Unfortunately News API doesn't allow to use their API in prod, when I deployed the project it throws error 426. 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
